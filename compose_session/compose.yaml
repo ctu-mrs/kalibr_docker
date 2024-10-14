@@ -13,4 +13,4 @@ services:
     environment:
         DISPLAY: $DISPLAY
 
-    command: bash -c "cd /data && rosrun kalibr kalibr_calibrate_cameras --models pinhole-radtan --topics /uav80/camera_down/image_raw --target april_6x6.yaml --bag rosbag.bag"
+    command: bash -c "cd /data && rosrun kalibr kalibr_calibrate_cameras --models pinhole-radtan --topics /uav80/camera_front/image_raw/compressed --target april_6x6.yaml --bag rosbag.bag"
