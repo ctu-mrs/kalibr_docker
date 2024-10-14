@@ -1,4 +1,4 @@
-FROM ros:noetic
+FROM osrf/ros:noetic-desktop-full
 
 # Dependencies we use, catkin tools is very good build system
 # https://github.com/ethz-asl/kalibr/wiki/installation
