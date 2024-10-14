@@ -1,0 +1,16 @@
+services:
+
+  kalibr:
+
+    image: ctumrs/kalibr
+
+    volumes:
+      - /dev/dri:/dev/dri
+      - ./data:/data
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority:$HOME/.Xauthority
+
+    environment:
+        DISPLAY: $DISPLAY
+
+    command: bash -c "cd /data && rosrun kalibr kalibr_calibrate_cameras --models pinhole-radtan --topics /uav80/camera_down/image_raw --target april_6x6.yaml --bag robofly.bag"
