@@ -13,4 +13,12 @@ services:
     environment:
         DISPLAY: $DISPLAY
 
-    command: bash -c "cd /data && rosrun kalibr kalibr_calibrate_cameras --models pinhole-radtan --topics /uav80/camera_front/image_raw/compressed --target april_6x6.yaml --bag rosbag.bag"
+    # --bag-freq can be used to downsample the camera topic, ideally, to get something like 500 images... otherwise it takes too long to process
+    #
+    # switch models between pinhole-radtan (for later conversion to camera_calibration result) and pinhole-equi for open vins
+    #
+    # you can pre-initialize the focal length of the camera by exporting
+    #            export KALIBR_MANUAL_FOCAL_LENGTH_INIT=1
+    # and then running kalibr with
+    #            echo 650 | rosrun kalibr ...
+    command: bash -c "cd /data && export KALIBR_MANUAL_FOCAL_LENGTH_INIT=1 && echo 650 | rosrun kalibr kalibr_calibrate_cameras --models pinhole-radtan --topics /uav80/camera_front/image_raw/compressed --target april_6x6.yaml --bag rosbag.bag --bag-freq 10.0"
