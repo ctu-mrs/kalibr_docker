@@ -7,7 +7,7 @@ import numpy
 
 def main():
 
-    input_path = "./robofly_00001_down-camchain.yaml"
+    input_path = "./rosbag-camchain.yaml"
     output_path = "./roscalib.yaml"
 
     with open(input_path, "r") as input_file:
@@ -85,7 +85,7 @@ def main():
                 "projection_matrix" : {
                     "rows" : 3,
                     "cols" : 4,
-                    "data" : P_1d_mat,
+                    "data" : P_1d_mat[0],
                 },
             }
 
