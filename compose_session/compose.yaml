@@ -21,4 +21,4 @@ services:
     #            export KALIBR_MANUAL_FOCAL_LENGTH_INIT=1
     # and then running kalibr with
     #            echo 650 | rosrun kalibr ...
-    command: bash -c "cd /data && export KALIBR_MANUAL_FOCAL_LENGTH_INIT=1 && echo 100 | rosrun kalibr kalibr_calibrate_cameras --models pinhole-radtan --topics /uav80/camera_front/image_raw/compressed --target april_6x6.yaml --bag rosbag.bag --bag-freq 2.0"
+    command: bash -c "cd /data && export KALIBR_MANUAL_FOCAL_LENGTH_INIT=1 && echo 500 | rosrun kalibr kalibr_calibrate_cameras --models pinhole-radtan --topics /uav85/camera_front_throttled/image_raw/compressed --target april_6x6.yaml --bag camera_front.bag --bag-freq 5.0"

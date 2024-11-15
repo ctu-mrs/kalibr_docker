@@ -7,7 +7,7 @@ import numpy
 
 def main():
 
-    input_path = "./rosbag-camchain.yaml"
+    input_path = "./camera_front-camchain.yaml"
     output_path = "./roscalib.yaml"
 
     with open(input_path, "r") as input_file:
