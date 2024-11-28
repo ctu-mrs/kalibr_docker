@@ -10,4 +10,4 @@ Docker wrapper around ethz-asl/kalibr
 
 ## Output conversion to the `camera_calibration` format
 
-Use the script in [./output_conversion](./output_conversion) to conver a calibr format (with the `radtan` model) to the output of `camera_calibration`;
+Use the script in [./output_conversion](./output_conversion) to convert the Kalibr format (with the `radtan` model) to the output of `camera_calibration`;
