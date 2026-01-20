@@ -23,7 +23,7 @@ RUN mkdir -p $WORKSPACE/src && \
   catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 RUN cd $WORKSPACE/src && \
-  git clone https://github.com/ethz-asl/kalibr.git
+  git clone https://github.com/ctu-mrs/kalibr.git
 
 RUN	cd $WORKSPACE && \
   catkin build && \

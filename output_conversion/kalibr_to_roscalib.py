@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import yaml
-import sys
 import cv2
 import numpy
 
