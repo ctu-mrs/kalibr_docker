@@ -1,0 +1,19 @@
+services:
+
+  kalibr:
+
+    image: ctumrs/kalibr
+
+    volumes:
+      - /dev/dri:/dev/dri
+      - ./scripts:/scripts
+      - ./data:/data
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority:$HOME/.Xauthority
+
+    environment:
+        DISPLAY: $DISPLAY
+    command: bash -c "python3 /scripts/extract_images.py \
+                      /data/input/bag.bag \
+                      /data/output \
+                      /uav1/camera_down/image_raw/compressed"
