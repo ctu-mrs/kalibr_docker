@@ -1,3 +1,3 @@
 xhost +
 
-docker compose up --attach-dependencies
+docker compose -f "$(dirname "$0")/compose.yaml" up --attach-dependencies
