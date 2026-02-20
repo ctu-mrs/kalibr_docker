@@ -50,6 +50,5 @@ def main():
 
     print(f'Dumped {count} raw image files.')
 
-
 if __name__ == '__main__':
     main()
