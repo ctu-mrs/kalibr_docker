@@ -15,7 +15,7 @@ This repo includes tools for extracting images from ROS1 and ROS2 bagfiles in th
 If the output directory is not specified, the extracted images will be placed in [compose_session/data/camera](./compose_session/data/camera), therefore the full pipeline can be ran with:
 
 ```bash
-bash input_conversion/run.sh ros.mcap /camera/rgb/image_raw
+bash input_conversion/run.sh ros.mcap /camera/rgb/image_raw/compressed
 bash compose_session/run.sh
 ```
 

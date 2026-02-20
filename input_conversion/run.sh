@@ -2,7 +2,7 @@
 
 bag_file="$(realpath "${1:-ros.mcap}")"
 bag_file_name="$(basename "$bag_file")"
-image_topic="${2:-/camera/rgb/image_raw}"
+image_topic="${2:-/camera/rgb/image_raw/compressed}"
 
 this_dir="$(dirname "$(realpath "$0")")"
 output_dir="${3:-$this_dir/../compose_session/data/camera}"
