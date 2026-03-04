@@ -1,5 +1,5 @@
-xhost +
+xhost +local:docker
 
 docker compose -f "$(dirname "$0")/compose.yaml" up --attach-dependencies
 
-xhost -
+xhost -local:docker
