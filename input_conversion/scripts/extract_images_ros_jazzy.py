@@ -1,11 +1,27 @@
 #!/usr/bin/env python3
 
 from argparse import ArgumentParser
-from os import makedirs, path
+from os import listdir, makedirs, path
 
 from rclpy.serialization import deserialize_message
 from rosbag2_py import ConverterOptions, SequentialReader, StorageOptions
 from sensor_msgs.msg import CompressedImage
+
+def detect_storage_id(uri: str) -> str:
+    def detect_file(file: str) -> str:
+        if file.endswith('.mcap'):
+            return 'mcap'
+        elif file.endswith('.db3'):
+            return 'sqlite3'
+
+        return ''
+
+    if path.isdir(uri):
+        for file in listdir(uri):
+            if res := detect_file(file):
+                return res
+
+    return detect_file(uri)
 
 def main():
     parser = ArgumentParser(description='Extract images from a ROS2 bag.')
@@ -19,7 +35,7 @@ def main():
     reader = SequentialReader()
     storage_options = StorageOptions(
         uri=args.bag_file,
-        storage_id='mcap' if args.bag_file.endswith('.mcap') else 'sqlite3'
+        storage_id=detect_storage_id(args.bag_file)
     )
 
     converter_options = ConverterOptions('cdr', 'cdr')
@@ -27,7 +43,7 @@ def main():
 
     count = 0
     while reader.has_next():
-        topic, data, t = reader.read_next()
+        topic, data, _ = reader.read_next()
         if topic != args.image_topic:
             continue
 
