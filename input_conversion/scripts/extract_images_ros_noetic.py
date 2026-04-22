@@ -15,7 +15,7 @@ def main():
 
     count = 0
     with Bag(args.bag_file, 'r') as bag:
-        for topic, msg, t in bag.read_messages(topics=[args.image_topic]):
+        for _, msg, _ in bag.read_messages(topics=[args.image_topic]):
             # We grab the raw byte array directly from the message
             byte_stream = msg.data
 
